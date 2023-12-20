@@ -1,6 +1,6 @@
 self.__uv$config = {
-    prefix: '/reviews/',
-    bare: '/outerspace/',
+    prefix: '/sw/',
+    bare: '/bare/',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/contact/algebra.js',

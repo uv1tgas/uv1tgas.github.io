@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" id="dynamic-favicon" href="favicon.png">
+    <title>Palladium Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column; /* Added to arrange content vertically */
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #popup {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 300px;
+            animation: fadeIn 0.5s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            margin-top: 20px; /* Added margin to separate popup from image */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            postition-top: center; 
+        }
+
+        button:hover {
+            background: #A9A9A9;
+        }
+
+        img {
+            max-width: 150px; /* Adjusted to make the image smaller */
+            max-height: 150px; /* Adjusted to make the image smaller */
+            position-bottom: 100hv; /* Added margin to separate image from button */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Centered Image at the top -->
+<img src="/css/Logo-site.png" alt="Centered Image">
+
+<!-- Button to trigger the popup -->
+<button onclick="openPopup()">Open Login</button>
+
+<!-- Popup overlay -->
+<div id="overlay">
+    <!-- Popup content -->
+    <div id="popup">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <button onclick="validateLogin()">Login</button>
+    </div>
+</div>
+
+<script>
+    function openPopup() {
+        document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function validateLogin() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Check if the password is correct
+        if (username === 'root@Palladium' && password === 'PD-Secure') {
+            alert('Login successful!');
+            window.location.href = 'Proxy.html'; // You can redirect to the actual site here
+            // For example, window.location.href = 'https://yourwebsite.com';
+            closePopup();
+        } else {
+            alert('Incorrect password. Try again.');
+        }
+    }
+</script>
+
+</body>
+</html>
